@@ -25,6 +25,7 @@ export default function CreateListing() {
     type: 'rent',
     bedrooms: 1,
     bathrooms: 1,
+    area:100,
     regularPrice: 50,
     discountPrice: 0,
     offer: false,
@@ -287,7 +288,12 @@ export default function CreateListing() {
               <span>Offer</span>
             </div>
           </div>
-          <div className='flex flex-wrap gap-6'>
+        
+        </div>
+        
+        <div className='flex flex-col flex-1 gap-4'>
+        
+         <div className='flex flex-wrap gap-6'>
             <div className='flex items-center gap-2'>
               <input
                 type='number'
@@ -314,7 +320,27 @@ export default function CreateListing() {
               />
               <p>Baths</p>
             </div>
+
             <div className='flex items-center gap-2'>
+              <input
+                type='number'
+                id='area'
+                min='100'
+                max='10000000'
+                required
+                className='p-3 border border-gray-300 rounded-lg'
+                onChange={handleChange}
+                value={formData.area}
+              />
+              <div className='flex flex-col items-center'>
+                <p>Area</p>
+                {formData.type === 'rent' && (
+                  <span className='text-xs'>( Squre feet)</span>
+                )}
+              </div>
+            </div>
+
+            <div className='flex items-center gap-2 mb-3'>
               <input
                 type='number'
                 id='regularPrice'
@@ -328,7 +354,7 @@ export default function CreateListing() {
               <div className='flex flex-col items-center'>
                 <p>Regular price</p>
                 {formData.type === 'rent' && (
-                  <span className='text-xs'>($ / month)</span>
+                  <span className='text-xs'>(INR / month)</span>
                 )}
               </div>
             </div>
@@ -354,8 +380,7 @@ export default function CreateListing() {
               </div>
             )}
           </div>
-        </div>
-        <div className='flex flex-col flex-1 gap-4'>
+
           <p className='font-semibold'>
             Images:
             <span className='font-normal text-gray-600 ml-2'>
@@ -412,6 +437,10 @@ export default function CreateListing() {
           >
             {loading ? 'Creating...' : 'Create listing'}
           </button>
+
+          
+
+
           {error && <p className='text-red-700 text-sm'>{error}</p>}
         </div>
       </form>

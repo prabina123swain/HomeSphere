@@ -30,6 +30,10 @@ const listingSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    area: {
+      type: Number,
+      required: true,
+    },
     regularPrice: {
       type: Number,
       required: true,

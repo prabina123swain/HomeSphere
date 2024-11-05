@@ -55,7 +55,7 @@ export default function Home() {
   }, []);
   
   return (
-    <div className='w-full flex flex-col  gap-8'>
+    <div className='w-full flex flex-col gap-8'>
       {/* top */}
       <div className='flex p-28 mx-auto'>
         <div className='flex flex-col gap-6 px-3 max-w-6xl'>
@@ -133,7 +133,7 @@ export default function Home() {
               <h2 className='text-2xl font-semibold text-slate-600'>Recent offers</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
             </div>
-            <div className='flex flex-wrap gap-8'>
+            <div className='flex flex-wrap gap-4' >
               {offerListings.map((listing) => (
                 <li>
                   <ListingItem listing={listing} key={listing._id} />
@@ -148,7 +148,7 @@ export default function Home() {
               <h2 className='text-2xl font-semibold text-slate-600'>Recent places for rent</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=rent'}>Show more places for rent</Link>
             </div>
-            <ul className="flex flex-wrap gap-8">
+            <ul className="flex flex-wrap gap-4">
               {rentListings.map((listing) => (
                 <li className="">
                   <ListingItem listing={listing} key={listing._id} />
@@ -164,7 +164,7 @@ export default function Home() {
               <h2 className='text-2xl font-semibold text-slate-600'>Recent places for sale</h2>
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?type=sale'}>Show more places for sale</Link>
             </div>
-            <ul className="flex flex-wrap gap-8">
+            <ul className="flex flex-wrap gap-4">
               {saleListings.map((listing) => (
                 <li>
                      <ListingItem listing={listing} key={listing._id} />

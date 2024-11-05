@@ -5,13 +5,14 @@ import { FaRupeeSign } from 'react-icons/fa';
 import { useState } from 'react';
 import Modal from './Modal';
 import ContactOwner from './ContactOwner';
+import { compareSync } from 'bcryptjs';
 
 export default function ListingItem({ listing }) {
    
   const [showModal , setShowModal ] = useState(false);
-
+ // console.log("listing",listing);
   return (
-    <div className='bg-white m-1 p-1 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden rounded-lg w-full sm:w-[330px]'>
+    <div className='bg-white m-1 p-1 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden rounded-lg w-full sm:w-[320px]'>
       <div className="property-card bg-white shadow-md hover:shadow-lg transition-shadow rounded-lg overflow-hidden">
         <figure className="card-banner relative h-[250px] overflow-hidden">
           <Link to={`/listing/${listing._id}`}>
@@ -73,7 +74,7 @@ export default function ListingItem({ listing }) {
             <div className="h-12 flex flex-col items-center w-px bg-slate-600"></div>
             <li className="flex flex-col items-center">
               <span className="flex gap-2">
-                <strong>3450</strong>
+                <strong>{listing.area}</strong>
                 <MdOutlineSquareFoot className="text-lg text-green-700 font-semibold mr-1" />
               </span>
               <span>Sq Ft</span>
